@@ -1,16 +1,23 @@
 import he from "he";
 
-function Categories({ questions }) {
+function Categories({ questions, selectedCategory, setSelectedCategory }) {
   const categories = questions.map(({ category }) => category);
-  const uniqueCategories = [...new Set(categories)];
+  const uniqueCategories = ["All", ...new Set(categories)].sort();
+
   return (
-    <>
-      <ul className="questions">
+    <form>
+      <select
+        className="questions"
+        value={selectedCategory}
+        onChange={(event) => setSelectedCategory(event.target.value)}
+      >
         {uniqueCategories.map((category) => (
-          <li key={category}>{he.decode(category)}</li>
+          <option key={category} value={category}>
+            {he.decode(category)}
+          </option>
         ))}
-      </ul>
-    </>
+      </select>
+    </form>
   );
 }
 
