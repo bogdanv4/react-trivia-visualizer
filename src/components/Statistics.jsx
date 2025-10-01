@@ -70,7 +70,7 @@ function Statistics({ questions }) {
         <div className="chart-box">
           <h3>Questions per Category</h3>
           <ResponsiveContainer height={300} width="100%">
-            <BarChart data={categoryData}>
+            <BarChart data={categoryData} margin={{ left: -35 }}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" hide />
               <YAxis />

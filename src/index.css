@@ -212,6 +212,12 @@ body {
   font-size: 0.9rem;
 }
 
+.recharts-layer:focus,
+.recharts-sector:focus,
+.recharts-surface:focus {
+  outline: none;
+}
+
 .stats-btn {
   display: inline-block;
   margin-top: 20px;
@@ -248,6 +254,10 @@ body {
 
   .select-control {
     max-width: 300px;
+  }
+
+  .charts-container {
+    padding: 20px;
   }
 
   .chart-box:nth-child(2) {
