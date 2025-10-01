@@ -246,6 +246,10 @@ body {
     align-items: center;
   }
 
+  .select-control {
+    max-width: 300px;
+  }
+
   .chart-box:nth-child(2) {
     width: 100%;
   }
