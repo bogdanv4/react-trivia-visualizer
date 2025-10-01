@@ -1,6 +1,6 @@
 function NoData() {
   return (
-    <p>
+    <p className="no-data-text">
       <strong>There is no such data. Sorry 😢</strong>
     </p>
   );
