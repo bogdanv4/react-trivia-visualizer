@@ -1,3 +1,15 @@
+:root {
+  --color-background-dark: #1e1e2e;
+  --color-background-dark-2: #2a2a3d;
+  --color-background-dark-3: #34344a;
+  --color-font-primary: #e0e0e0;
+  --color-pink: #f7768e;
+  --color-pink-2: #c792ea;
+  --color-purple: #82aaff;
+  --color-purple-light: #a6accd;
+  --color-border-dark: #444;
+}
+
 /* GLOBAL RESET */
 * {
   margin: 0;
@@ -8,8 +20,8 @@
 }
 
 body {
-  background-color: #1e1e2e;
-  color: #e0e0e0;
+  background-color: var(--color-background-dark);
+  color: var(--color-font-primary);
   line-height: 1.6;
   padding: 20px;
 }
@@ -21,10 +33,10 @@ body {
 }
 .header h1 {
   font-size: 2.5rem;
-  color: #82aaff;
+  color: var(--color-purple);
 }
 .subtitle {
-  color: #a6accd;
+  color: var(--color-purple-light);
   font-size: 1rem;
   margin-top: 8px;
 }
@@ -38,16 +50,17 @@ body {
 }
 .select-control {
   padding: 10px 15px;
-  background: #2a2a3d;
-  border: 1px solid #444;
+  background: var(--color-background-dark-2);
+  border: 1px solid var(--color-border-dark);
   border-radius: 8px;
-  color: #e0e0e0;
+  color: var(--color-font-primary);
   font-size: 1rem;
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 .select-control:hover,
 .select-control:focus {
-  border-color: #82aaff;
+  border-color: var(--color-purple);
   outline: none;
 }
 
@@ -60,7 +73,7 @@ body {
   text-align: center;
   font-size: 1.8rem;
   margin-bottom: 20px;
-  color: #c792ea;
+  color: var(--color-pink-2);
 }
 .questions-list {
   display: flex;
@@ -68,14 +81,14 @@ body {
   gap: 15px;
 }
 .question-item {
-  background: #2a2a3d;
+  background: var(--color-background-dark-2);
   padding: 15px 20px;
   border-radius: 10px;
-  border-left: 4px solid #82aaff;
+  border-left: 4px solid var(--color-purple);
   transition: background 0.3s ease, transform 0.2s ease;
 }
 .question-item:hover {
-  background: #34344a;
+  background: var(--color-background-dark-3);
   transform: translateY(-2px);
 }
 
@@ -83,7 +96,7 @@ body {
 .questions p {
   text-align: center;
   font-size: 1.1rem;
-  color: #f7768e;
+  color: var(--color-pink);
 }
 
 /* LOADER */
@@ -95,8 +108,8 @@ body {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  border: 6px solid #444;
-  border-top-color: #82aaff;
+  border: 6px solid var(--color-border-dark);
+  border-top-color: var(--color-purple);
   animation: spin 0.8s linear infinite;
 }
 @keyframes spin {

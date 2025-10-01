@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import Questions from "./Questions";
-import Categories from "./Categories";
-import Difficulties from "./Difficulties";
-import LoadingSpinner from "./LoadingSpinner";
+import Questions from "./components/Questions";
+import Categories from "./components/Categories";
+import Difficulties from "./components/Difficulties";
+import LoadingSpinner from "./components/LoadingSpinner";
 
 function App() {
   const [questions, setQuestions] = useState([]);
@@ -32,34 +32,34 @@ function App() {
 
   return (
     <>
-  <header className="header">
-    <h1>Trivia Explorer</h1>
-    <p className="subtitle">Filter questions by category & difficulty</p>
-  </header>
+      <header className="header">
+        <h1>Trivia Explorer</h1>
+        <p className="subtitle">Filter questions by category & difficulty</p>
+      </header>
 
-  {loading ? (
-    <LoadingSpinner />
-  ) : (
-    <>
-      <div className="filters">
-        <Categories
-          questions={questions}
-          selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-        />
-        <Difficulties
-          selectedDifficulty={selectedDifficulty}
-          setSelectedDifficulty={setSelectedDifficulty}
-        />
-      </div>
+      {loading ? (
+        <LoadingSpinner />
+      ) : (
+        <>
+          <div className="filters">
+            <Categories
+              questions={questions}
+              selectedCategory={selectedCategory}
+              setSelectedCategory={setSelectedCategory}
+            />
+            <Difficulties
+              selectedDifficulty={selectedDifficulty}
+              setSelectedDifficulty={setSelectedDifficulty}
+            />
+          </div>
 
-      <div className="questions">
-        <h2 className="section-title">Questions</h2>
-        <Questions questions={filteredQuestions} />
-      </div>
+          <div className="questions">
+            <h2 className="section-title">Questions</h2>
+            <Questions questions={filteredQuestions} />
+          </div>
+        </>
+      )}
     </>
-  )}
-</>
   );
 }
 
