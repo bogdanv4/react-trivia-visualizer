@@ -7,7 +7,7 @@ function Categories({ questions, selectedCategory, setSelectedCategory }) {
   return (
     <form>
       <select
-        className="questions"
+        className="select-control"
         value={selectedCategory}
         onChange={(event) => setSelectedCategory(event.target.value)}
       >

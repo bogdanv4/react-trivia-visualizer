@@ -2,7 +2,7 @@ function Difficulties({ selectedDifficulty, setSelectedDifficulty }) {
   return (
     <form>
       <select
-        className="questions"
+         className="select-control"
         value={selectedDifficulty}
         onChange={(event) => setSelectedDifficulty(event.target.value)}
       >
