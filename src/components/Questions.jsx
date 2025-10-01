@@ -7,15 +7,44 @@ function Questions({ questions }) {
   }
 
   return (
-    <>
-      <ul className="questions-list">
-        {questions.map(({ question }) => (
-          <li key={question} className="question-item">
-            {he.decode(question)}
-          </li>
-        ))}
-      </ul>
-    </>
+    <div className="table-container">
+      <table className="questions-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Difficulty</th>
+            <th>Question</th>
+            <th>Correct Answer</th>
+            <th>Incorrect Answers</th>
+          </tr>
+        </thead>
+        <tbody>
+          {questions.map(
+            ({
+              category,
+              difficulty,
+              question,
+              correct_answer,
+              incorrect_answers,
+            }) => (
+              <tr key={question}>
+                <td>{he.decode(category)}</td>
+                <td className={`diff diff-${difficulty}`}>{difficulty}</td>
+                <td className="question-cell">{he.decode(question)}</td>
+                <td className="correct">{he.decode(correct_answer)}</td>
+                <td>
+                  <ul className="incorrect-list">
+                    {incorrect_answers.map((ans) => (
+                      <li key={ans}>{he.decode(ans)}</li>
+                    ))}
+                  </ul>
+                </td>
+              </tr>
+            )
+          )}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
