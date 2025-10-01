@@ -32,36 +32,34 @@ function App() {
 
   return (
     <>
-      <h1 className="heading">Welcome</h1>
-      {loading ? (
-        <LoadingSpinner />
-      ) : (
-        <>
-          <div className="row">
-            <div className="categories">
-              <h2 className="heading">Categories</h2>
-              <Categories
-                questions={questions}
-                selectedCategory={selectedCategory}
-                setSelectedCategory={setSelectedCategory}
-              />
-            </div>
-            <div className="difficulties">
-              <h2 className="heading">Difficulties</h2>
-              <Difficulties
-                selectedDifficulty={selectedDifficulty}
-                setSelectedDifficulty={setSelectedDifficulty}
-              />
-            </div>
-          </div>
-          <hr />
-          <div className="questions">
-            <h2 className="heading">Questions</h2>
-            <Questions questions={filteredQuestions} />
-          </div>
-        </>
-      )}
+  <header className="header">
+    <h1>Trivia Explorer</h1>
+    <p className="subtitle">Filter questions by category & difficulty</p>
+  </header>
+
+  {loading ? (
+    <LoadingSpinner />
+  ) : (
+    <>
+      <div className="filters">
+        <Categories
+          questions={questions}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
+        <Difficulties
+          selectedDifficulty={selectedDifficulty}
+          setSelectedDifficulty={setSelectedDifficulty}
+        />
+      </div>
+
+      <div className="questions">
+        <h2 className="section-title">Questions</h2>
+        <Questions questions={filteredQuestions} />
+      </div>
     </>
+  )}
+</>
   );
 }
 

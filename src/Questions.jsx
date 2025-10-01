@@ -8,11 +8,13 @@ function Questions({ questions }) {
 
   return (
     <>
-      <ul className="questions">
-        {questions.map(({ question }) => (
-          <li key={question}>{he.decode(question)}</li>
-        ))}
-      </ul>
+     <ul className="questions-list">
+  {questions.map(({ question }) => (
+    <li key={question} className="question-item">
+      {he.decode(question)}
+    </li>
+  ))}
+</ul>
     </>
   );
 }
