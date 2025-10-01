@@ -3,12 +3,14 @@ import Questions from "./components/Questions";
 import Categories from "./components/Categories";
 import Difficulties from "./components/Difficulties";
 import LoadingSpinner from "./components/LoadingSpinner";
+import Statistics from "./components/Statistics";
 
 function App() {
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedDifficulty, setSelectedDifficulty] = useState("All");
+  const [showStats, setShowStats] = useState(false);
 
   async function fetchQuestions() {
     setLoading(true);
@@ -34,10 +36,14 @@ function App() {
     <>
       <header className="header">
         <h1>Trivia Explorer</h1>
-        <p className="subtitle">Filter questions by category & difficulty</p>
+        <button className="stats-btn" onClick={() => setShowStats(!showStats)}>
+          {showStats ? "Hide Statistics" : "Show Statistics"}
+        </button>
       </header>
 
-      {loading ? (
+      {showStats ? (
+        <Statistics questions={questions} />
+      ) : loading ? (
         <LoadingSpinner />
       ) : (
         <>
