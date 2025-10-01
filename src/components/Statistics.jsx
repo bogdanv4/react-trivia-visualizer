@@ -9,6 +9,7 @@ import {
   YAxis,
   CartesianGrid,
   Legend,
+  ResponsiveContainer,
 } from "recharts";
 
 function Statistics({ questions }) {
@@ -45,56 +46,62 @@ function Statistics({ questions }) {
       <div className="charts-container">
         <div className="chart-box">
           <h3>Questions by Difficulty</h3>
-          <PieChart width={400} height={300}>
-            <Pie
-              data={difficultyData}
-              dataKey="value"
-              nameKey="name"
-              outerRadius={100}
-            >
-              {difficultyData.map((_, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={COLORS[index % COLORS.length]}
-                />
-              ))}
-            </Pie>
-            <Tooltip />
-            <Legend />
-          </PieChart>
+          <ResponsiveContainer height={300} width="100%">
+            <PieChart>
+              <Pie
+                data={difficultyData}
+                dataKey="value"
+                nameKey="name"
+                outerRadius={100}
+              >
+                {difficultyData.map((_, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={COLORS[index % COLORS.length]}
+                  />
+                ))}
+              </Pie>
+              <Tooltip />
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
         </div>
 
         <div className="chart-box">
           <h3>Questions per Category</h3>
-          <BarChart width={600} height={300} data={categoryData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" hide />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="value" fill="#82aaff" />
-          </BarChart>
+          <ResponsiveContainer height={300} width="100%">
+            <BarChart data={categoryData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" hide />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey="value" fill="#82aaff" />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
 
         <div className="chart-box">
           <h3>Questions by Type</h3>
-          <PieChart width={400} height={300}>
-            <Pie
-              data={typeData}
-              dataKey="value"
-              nameKey="name"
-              outerRadius={100}
-            >
-              {typeData.map((_, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={COLORS[index % COLORS.length]}
-                />
-              ))}
-            </Pie>
-            <Tooltip />
-            <Legend />
-          </PieChart>
+          <ResponsiveContainer height={300} width="100%">
+            <PieChart>
+              <Pie
+                data={typeData}
+                dataKey="value"
+                nameKey="name"
+                outerRadius={100}
+              >
+                {typeData.map((_, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={COLORS[index % COLORS.length]}
+                  />
+                ))}
+              </Pie>
+              <Tooltip />
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
         </div>
       </div>
     </>
