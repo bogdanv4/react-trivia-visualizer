@@ -11,6 +11,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import he from "he";
 
 function Statistics({ questions }) {
   const categoriesCount = questions.reduce((acc, q) => {
@@ -27,7 +28,7 @@ function Statistics({ questions }) {
   }, {});
 
   const categoryData = Object.entries(categoriesCount).map(([name, value]) => ({
-    name,
+    name: he.decode(name),
     value,
   }));
   const difficultyData = Object.entries(difficultiesCount).map(
@@ -39,6 +40,8 @@ function Statistics({ questions }) {
   }));
 
   const COLORS = ["#82aaff", "#c792ea", "#f7768e", "#c3e88d", "#ffcb6b"];
+
+  console.log(categoryData);
 
   return (
     <>
